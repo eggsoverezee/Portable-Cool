@@ -29,7 +29,7 @@ void recon_mode(){
     }
     // If the left bumper has been hit, back up and turn right.
     if(get_create_lbump(0.1) == 1 || get_create_lflightbump(0.1) == 1 
-        || get_create_lclightbump(0.1) == 1 || get_create_llightbump(0.1) == 1){
+    || get_create_lclightbump(0.1) == 1 || get_create_llightbump(0.1) == 1){
         create_drive_straight(-150);
         msleep(1000); // 3 seconds.
         create_spin_CW(100);
@@ -37,7 +37,7 @@ void recon_mode(){
     }
         // If the right bumper has been hit, back up and turn left.
         if (get_create_rbump(0.1) == 1 || get_create_rflightbump(0.1) == 1 
-            || get_create_rclightbump(0.1) == 1 || get_create_rlightbump(0.1) == 1 ){
+        || get_create_rclightbump(0.1) == 1 || get_create_rlightbump(0.1) == 1 ){
         	create_drive_straight(-150);
            	msleep(1000); // 3 seconds.
            	create_spin_CCW(100);
@@ -79,12 +79,12 @@ void camOps() {
 }
 
 void driveOps(){        
-        while(stoppage != 1){
-            target = get_object_center_x(0, 0);
-            create_drive_direct(target, 160-target);
-            recon_mode();
-			if(get_object_count(PURPLE) > 1)
-        		sentry_mode();
+    while(stoppage != 1){
+        target = get_object_center_x(0, 0);
+        create_drive_direct(target, 160-target);
+        recon_mode();
+		if(get_object_count(PURPLE) > 1)
+        	sentry_mode();
         }
 }
 
@@ -99,7 +99,7 @@ int main(){
     thread_start(camThread);
     thread_start(driveThread);
     while(1){
-        if(stoppage ==1){
+        if(stoppage == 1){
          	thread_destroy(camThread);
             thread_destroy(driveThread);
             break;
