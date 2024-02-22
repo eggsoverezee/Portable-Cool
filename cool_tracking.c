@@ -1,6 +1,6 @@
 #include <cool_tracking.h>
 
-const int GREEN = 0; // Color channel to singal free roam
+const int GREEN = 0; // Color channel to signal free roam
 const int PURPLE = 1; // Color channel to signal rotate in place
 const int ORANGE = 2; // Color channel to signal stop
 const unsigned char *img;
