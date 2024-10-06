@@ -1,4 +1,3 @@
- #include <cool_tracking.c>
  
  int main(){
     create_connect();
