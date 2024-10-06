@@ -1,13 +1,10 @@
 #include <cool_tracking.h>
 
-const int GREEN = 0; // Color channel to signal free roam
-const int PURPLE = 1; // Color channel to signal rotate in place
-const int ORANGE = 2; // Color channel to signal stop
 const unsigned char *img;
-
 int target;
 int STOPPAGE = 0;
 
+//Free roam
 void recon_mode(){
     if(analog(LEFT) > 1900){
         while(analog(LEFT) > 1900){
@@ -43,6 +40,7 @@ void recon_mode(){
     }
 }
 
+//Rotate in place
 void sentry_mode(){
     if(target == BULLSEYE)
         create_stop();
@@ -56,25 +54,27 @@ void sentry_mode(){
        	create_spin_CW(50);
 }
 
+
 void camOps(){
    int r;
    int c;
    int ix;
 
-   while (STOPPAGE != 1) {
-    camera_update();
-    img=get_camera_frame(); // get a camera frame and display it in graphics window
-    for(r=0; r<120; r++){
-        for(c=0; c<160; c++){
-            ix=3*(160*r + c); // index of pixel to paint into row r, column c
-            graphics_pixel(c,r,img[ix+2],img[ix+1],img[ix]); // RGB order by reversing GBR
+    while (STOPPAGE != 1) {
+        camera_update();
+        img=get_camera_frame(); // get a camera frame and display it in graphics window
+        for(r=0; r<120; r++){
+            for(c=0; c<160; c++){
+                ix=3*(160*r + c); // index of pixel to paint into row r, column c
+                graphics_pixel(c,r,img[ix+2],img[ix+1],img[ix]); // RGB order by reversing GBR
+            }
         }
+        graphics_update();
+        if(get_object_count(ORANGE) > 0)
+            STOPPAGE = 1;
     }
-    graphics_update();
-    if(get_object_count(ORANGE) > 0)
-        STOPPAGE = 1;
-   }
 }
+
 
 void driveOps(){        
     while(STOPPAGE != 1){
