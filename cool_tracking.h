@@ -1,4 +1,3 @@
-#include <kipr/wombat.h>
 
 #define LEFT 0 // Left ET Sensor
 #define RIGHT 5 // Right ET Sensor
