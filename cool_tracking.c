@@ -1,3 +1,4 @@
+#include "cool_tracking_.h"
 
 const unsigned char *img;
 int target;
