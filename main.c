@@ -1,4 +1,6 @@
- 
+#include <kipr/wombat.h>
+#include "cool_tracking.h"
+
  int main(){
     create_connect();
     camera_open();
