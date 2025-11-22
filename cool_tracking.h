@@ -1,3 +1,5 @@
+#ifndef COOLTRACKING_H
+#define COOLTRACKING_H
 
 #define LEFT 0 // Left ET Sensor
 #define RIGHT 5 // Right ET Sensor
@@ -14,3 +16,4 @@ void recon_mode();
 void sentry_mode();
 void camOps();
 void driveOps();
+#endif
