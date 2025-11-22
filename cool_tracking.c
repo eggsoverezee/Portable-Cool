@@ -1,4 +1,3 @@
-#include <cool_tracking.h>
 
 const unsigned char *img;
 int target;
